@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Button from './components/Button'
+import Add from './components/Add'
+import List from './components/List'
+import Pay from './components/Pay'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
@@ -26,6 +29,9 @@ class App extends Component {
           handleClick={this.handleButtonClick}
           isSelected={this.state.activeTab}
         />
+        {this.state.activeTab === "add" && <Add />}
+        {this.state.activeTab === "list" && <List />}
+        {this.state.activeTab === "pay" && <Pay />}
       </div>
     )
   }
