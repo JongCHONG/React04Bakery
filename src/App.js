@@ -38,7 +38,7 @@ class App extends Component {
           isSelected={this.state.activeTab}
         />
         {this.state.activeTab === "add" && <Add addItem={this.addItem}/>}
-        {this.state.activeTab === "list" && <List />}
+        {this.state.activeTab === "list" && <List items={this.state.items}/>}
         {this.state.activeTab === "pay" && <Pay />}
       </div>
     )
