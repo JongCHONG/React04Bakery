@@ -13,12 +13,20 @@ class App extends Component {
       activeTab: "add",
       items: []
     }
+    
     this.handleButtonClick = this.handleButtonClick.bind(this)
+    this.addItem = this.addItem.bind(this)
   }
 
   handleButtonClick(e) {
     this.setState({activeTab: e.target.value})
-    // console.log(e.target.value)
+  }
+  addItem(name, price) {
+    const newItem = {
+      name: name,
+      price: price
+    }
+    this.setState({items: [...this.state.items, newItem]})
   }
 
   render() {
@@ -29,7 +37,7 @@ class App extends Component {
           handleClick={this.handleButtonClick}
           isSelected={this.state.activeTab}
         />
-        {this.state.activeTab === "add" && <Add />}
+        {this.state.activeTab === "add" && <Add addItem={this.addItem}/>}
         {this.state.activeTab === "list" && <List />}
         {this.state.activeTab === "pay" && <Pay />}
       </div>
